@@ -1,17 +1,20 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@nuxt/ui", "@nuxtjs/hanko"],
+  modules: ["@nuxt/ui", "@nuxtjs/hanko", "@vueuse/nuxt"],
 
   hanko: {
     apiURL: process.env.NUXT_PUBLIC_HANKO_API_URL,
-    cookieName: 'hanko',
+    cookieName: "hanko",
     redirects: {
-         login: '/',
-         success: '/dashboard',
-         home: '/dashboard',
-         followRedirect: true
-       },
-  
+      login: "/",
+      success: "/dashboard",
+      home: "/dashboard",
+      followRedirect: true,
+    },
   },
-})
+
+  colorMode: {
+    preference: "light",
+  },
+});

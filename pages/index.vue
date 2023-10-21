@@ -1,5 +1,9 @@
 <template>
-      <hanko-auth  @onAuthFlowCompleted="afterLogin()" />
+    <UContainer class="flex justify-center items-center h-screen">
+        <UCard class="max-w-2xl ">
+            <hanko-auth @onAuthFlowCompleted="afterLogin()" />
+        </UCard>
+    </UContainer>
 </template>
 <script setup>
 definePageMeta({
@@ -8,4 +12,3 @@ definePageMeta({
 
 
 </script>
-   
