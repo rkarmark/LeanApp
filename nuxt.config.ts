@@ -3,6 +3,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@nuxt/ui", "@nuxtjs/hanko", "@vueuse/nuxt"],
 
+  experimental: { appManifest: false },
+
   hanko: {
     apiURL: process.env.NUXT_PUBLIC_HANKO_API_URL,
     cookieName: "hanko",
