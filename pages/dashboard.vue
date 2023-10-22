@@ -13,7 +13,7 @@
                     </UButton>
                 </div>
             </template>
-            {{ info.data.value?.body.res[0].userId }}
+            <UTable :rows="users.data.value?.body.res" />
             {{ info }}
         </UCard>
 
@@ -23,6 +23,8 @@
 <script setup lang="ts">
 
 const info = await useFetch('/api/user');
+
+const users = await useFetch('/api/users');
 
 import { md5 } from 'js-md5';
 
