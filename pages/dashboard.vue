@@ -13,7 +13,7 @@
                     </UButton>
                 </div>
             </template>
-            <UTable :rows="users.data.value?.body.res" />
+            <UTable :columns="columns" :rows="users.data.value?.body.res" />
             {{ info }}
         </UCard>
 
@@ -21,6 +21,20 @@
 </template>
 
 <script setup lang="ts">
+const columns = [{
+    key: 'userId',
+    label: 'ID'
+}, {
+    key: 'firstName',
+    label: 'Fornavn'
+}, {
+    key: 'lastName',
+    label: 'efternavn'
+}, {
+    key: 'email',
+    label: 'Email'
+},]
+
 
 const info = await useFetch('/api/user');
 
