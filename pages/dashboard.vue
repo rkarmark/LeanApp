@@ -3,11 +3,8 @@
 
         <UCard>
             <template #header>
-                <div class="flex justify-between">
-                    <UAvatar  :alt="info.data.value?.body.res[0].userName" />
-                    <h1>
-                        {{ info.data.value?.body.res[0].userName }}
-                    </h1>
+                <div class="flex justify-between" >
+                    
                     <UButton @click="signOut">
                         Sign Out
                     </UButton>
@@ -16,7 +13,6 @@
             <UTable :columns="columns" :rows="users.data.value?.body.res" />
             {{ info }}
         </UCard>
-
     </UContainer>
 </template>
 
