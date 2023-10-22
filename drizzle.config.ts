@@ -3,10 +3,11 @@ import type { Config } from "drizzle-kit";
 const config: Config = {
   schema: "./server/db/schema.ts",
   out: "./drizzle",
-  driver: "mysql2",
+  driver: "turso",
   dbCredentials: {
-    connectionString: process.env['CONN_STRING'],
-  }
+    url: process.env.DATABASE_URL!,
+    authToken: process.env.DATABASE_TOKEN!,
+  },
 };
 
 export default config;

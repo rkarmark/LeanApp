@@ -19,10 +19,10 @@
     "nuxt": "^3.8.0"
   },
   "dependencies": {
-    "@planetscale/database": "1.6.0",
+    "@libsql/client": "^0.3.6",
+    "better-sqlite3": "^9.0.0",
     "drizzle-orm": "^0.28.6",
     "js-md5": "^0.8.3",
-    "jwt-decode": "^3.1.2",
-    "mysql2": "^3.6.2"
+    "jwt-decode": "^3.1.2"
   }
 }

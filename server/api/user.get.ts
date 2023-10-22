@@ -18,9 +18,10 @@ export default defineEventHandler(async (event) => {
   const res = await useDB()
     .select()
     .from(tables.users)
-    .where(eq(cookieId, tables.users.userId));
+    .where(eq(cookieId, tables.users.userId))
+    .all();
 
-  if (res.length === 0) {
+  if (!res) {
     return {
       status: 404,
       body: `User with id ${cookieId} not found`,

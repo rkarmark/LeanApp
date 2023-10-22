@@ -26,16 +26,6 @@ const info = await useFetch('/api/user');
 
 import { md5 } from 'js-md5';
 
-const token = useCookie('hanko')
-
-import decodeJWT from 'jwt-decode'
-
-if (!token.value) {
-    throw new Error("No token")
-}
-
-const decoded = decodeJWT(token.value)
-
 const hanko = useHanko()
 
 const user = await hanko?.user.getCurrent()
