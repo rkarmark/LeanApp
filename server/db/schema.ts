@@ -5,5 +5,4 @@ export const users = sqliteTable("users", {
   firstName: text("firstName"),
   lastName: text("lastName"),
   email: text("email"),
-  userImage: text("userImage"),
 });
