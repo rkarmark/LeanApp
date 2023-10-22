@@ -14,6 +14,7 @@
                 </div>
             </template>
             {{ info.data.value?.body.res[0].userId }}
+            {{ info }}
         </UCard>
 
     </UContainer>
