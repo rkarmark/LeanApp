@@ -4,7 +4,7 @@
         <UCard>
             <template #header>
                 <div class="flex justify-between">
-                    <UAvatar :src="info.data.value?.body.res[0].userImage" :alt="info.data.value?.body.res[0].userName" />
+                    <UAvatar  :alt="info.data.value?.body.res[0].userName" />
                     <h1>
                         {{ info.data.value?.body.res[0].userName }}
                     </h1>
