@@ -4,16 +4,16 @@
         <UCard>
             <template #header>
                 <div class="flex justify-between">
-                    <UAvatar :src="hash" alt="Rolf Andersen" />
+                    <UAvatar :src="info.data.value?.body.res[0].userImage" :alt="info.data.value?.body.res[0].userName" />
                     <h1>
-                        {{ user?.email }}
+                        {{ info.data.value?.body.res[0].userName }}
                     </h1>
                     <UButton @click="signOut">
                         Sign Out
                     </UButton>
                 </div>
             </template>
-            {{ info }}
+            {{ info.data.value?.body.res[0].userId }}
         </UCard>
 
     </UContainer>
@@ -21,7 +21,7 @@
 
 <script setup lang="ts">
 
-const info = await useFetch('/api/endpoint');
+const info = await useFetch('/api/user');
 
 import { md5 } from 'js-md5';
 
@@ -42,7 +42,7 @@ const user = await hanko?.user.getCurrent()
 const hash = ref<String | undefined>(undefined)
 
 if (user) {
-    hash.value = `https://gravatar.com/avatar/${md5(user.email)}`
+    hash.value = `https://gravatar.com/avatar/${md5(user.email)}?d=404`
 } else {
     hash.value = undefined
 }

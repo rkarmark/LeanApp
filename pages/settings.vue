@@ -27,7 +27,7 @@ function signOut() {
 
 <template>
     <UContainer class="flex justify-center pt-4">
-        <UCard class="max-w-2xl ">
+        <UCard class="min-w-2xl ">
             <template #header>
                 <div class="flex justify-between">
                     <UAvatar :src="hash" alt="Rolf Andersen" />

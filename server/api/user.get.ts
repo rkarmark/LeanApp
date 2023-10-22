@@ -10,21 +10,20 @@ export default defineEventHandler(async (event) => {
       },
     };
   }
+
+  const cookieId = event.context.hanko.sub;
   // Do something with the Hanko user
   //
 
-  const res = useDB()
+  const res = await useDB()
     .select()
     .from(tables.users)
-    .where(eq(tables.users.userId, event.context.hanko.id))
-    .get();
+    .where(eq(cookieId, tables.users.userId));
 
-  if (res == undefined) {
+  if (res.length === 0) {
     return {
       status: 404,
-      body: {
-        message: "User not found",
-      },
+      body: `User with id ${cookieId} not found`,
     };
   }
 

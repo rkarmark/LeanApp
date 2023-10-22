@@ -7,7 +7,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "dbgenerate": "drizzle-kit generate:mysql"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
@@ -18,8 +19,10 @@
     "nuxt": "^3.8.0"
   },
   "dependencies": {
+    "@planetscale/database": "^1.11.0",
     "drizzle-orm": "^0.28.6",
     "js-md5": "^0.8.3",
-    "jwt-decode": "^3.1.2"
+    "jwt-decode": "^3.1.2",
+    "mysql2": "^3.6.2"
   }
 }
