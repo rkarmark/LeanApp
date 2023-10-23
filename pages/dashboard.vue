@@ -10,13 +10,14 @@
                     </UButton>
                 </div>
             </template>
-            <UTable :columns="columns" :rows="users.data.value?.body.res" />
-            {{ info }}
+            <UTable v-if="users?.body.res" :columns="columns" :rows="users.body.res" />
         </UCard>
     </UContainer>
 </template>
 
 <script setup lang="ts">
+import jwtDecode from 'jwt-decode';
+
 const columns = [{
     key: 'userId',
     label: 'ID'
@@ -32,24 +33,27 @@ const columns = [{
 },]
 
 
-const info = await useFetch('/api/user');
 
-const users = await useFetch('/api/users');
+const { data } = await useFetch('/api/user');
 
-import { md5 } from 'js-md5';
+const {data: users} = await useFetch('/api/users');
+
 
 const hanko = useHanko()
 
 const user = await hanko?.user.getCurrent()
 
-const hash = ref<String | undefined>(undefined)
+const cookie = useCookie('hanko')
 
-if (user) {
-    hash.value = `https://gravatar.com/avatar/${md5(user.email)}?d=404`
+
+ const header = jwtDecode(cookie.value!)
+
+
+if (users.value?.body.res.filter(e => e.userId === header.sub).length > 0) {
+    console.log("exists")
 } else {
-    hash.value = undefined
+    navigateTo('/newuser')
 }
-
 
 function signOut() {
     console.log("signing out")
